@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Store";
+}
+
+<h2>Store</h2>
+
+<h3><a href="Add">Add new item</a></h3>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    @for (int i = 0; i < ViewBag.Items.Count;  i++)
+    {
+        <tr>
+            <td>@ViewBag.Items[i].ItemID</td>
+            <td>@ViewBag.Items[i].Name</td>
+            <td>@ViewBag.Items[i].Description</td>
+            <td>@ViewBag.Items[i].Quantity</td>
+            <td>@ViewBag.Items[i].Price</td>
+            <td><a href="Update?itemID=@ViewBag.Items[i].ItemID"><span class="glyphicon glyphicon-pencil"></span></a></td>
+            <td><a href="Delete?itemID=@ViewBag.Items[i].ItemID"><span class="glyphicon glyphicon-remove"></span></a></td>
+        </tr>
+    }
+</table>

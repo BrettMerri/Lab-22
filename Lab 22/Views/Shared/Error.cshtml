@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Error";
+}
+
+<hgroup>
+    <h1>Error.</h1>
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <h2>@ViewBag.ErrorMessage</h2>
+    }
+    @if (ViewBag.ErrorDetails != null)
+    {
+        <h3>@ViewBag.ErrorDetails</h3>
+    }
+</hgroup>

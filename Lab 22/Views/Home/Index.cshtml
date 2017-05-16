@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h1>Welcome to the CoffeeShop Website!</h1>
+
+@if (ViewBag.User != null)
+{
+    <h2>Thank you for registering, @ViewBag.User.Username</h2>
+}
