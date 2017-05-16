@@ -7,7 +7,7 @@
 
 <h2>Update</h2>
 
-@using (Html.BeginForm("UpdateItem", "Store"))
+@using (Html.BeginForm("UpdateItem", "Store", FormMethod.Post, new { @id = "formValidation" }))
 {
     @Html.AntiForgeryToken()
     
@@ -49,11 +49,13 @@
 
         @Html.HiddenFor(model => model.ItemID)
 
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
+        <p id="validationError"></p>
     </div>
 }
 
