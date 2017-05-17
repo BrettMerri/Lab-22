@@ -4,27 +4,38 @@
         var description = $('#Description').val();
         var quantity = $('#Quantity').val();
         var price = $('#Price').val();
+        var errorCount = 0;
 
-        if (name == "" || name.Length > 25) {
-            $('#validationError').text("Name must be 25 characters or less.");
-            $('#validationError').show();
+        $('#validationError').empty();
+
+        if (name == "" || description == "" || quantity == "" || price == "")
+        {
+            $('#validationError').append("<p>All fields are required</p>");
             return false;
         }
-        else if (description == "" || description.Length > 25) {
-            $('#validationError').text("Description must be 25 characters or less.");
+
+        if (name.length < 3 || name.length > 25) {
+            $('#validationError').append("<p>Name must be between 3 and 25 characters.</p>");
             $('#validationError').show();
-            return false;
+            errorCount++;
         }
-        else if (quantity == "" || quantity < 0 || quantity > 500) {
-            $('#validationError').text("Quantity must be between 0 and 500.");
+        if (description.length < 3 || description.length > 25) {
+            $('#validationError').append("<p>Description must be between 3 and 25 characters.</p>");
             $('#validationError').show();
-            return false;
+            errorCount++;
         }
-        else if (price == "" || price < 0 || price > 200) {
-            $('#validationError').text("Price must be between 0 and 200.");
+        if (quantity < 0 || quantity > 1000) {
+            $('#validationError').append("<p>Quantity must be between 0 and 1000.</p>");
             $('#validationError').show();
-            return false;
+            errorCount++;
         }
+        if (price < 0 || price > 200) {
+            $('#validationError').append("<p>Price must be between 0 and 200.</p>");
+            $('#validationError').show();
+            errorCount++;
+        }
+        if (errorCount > 0)
+            return false;
         else {
             $('#validationError').hide();
         }
